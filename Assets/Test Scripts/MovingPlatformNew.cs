@@ -7,6 +7,7 @@ public class MovingPlatformNew : MonoBehaviour {
     public Transform platform;
     public Transform positionOne;
     public Transform positionTwo;
+    public Transform positionThree;
     public float platformSpeed = 2.0f;
     public int waitTime = 2;
     
@@ -34,10 +35,16 @@ public class MovingPlatformNew : MonoBehaviour {
         {
             if (newDestination == positionOne.position)
             {
+                //StartCoroutine(StopWaitSet(positionTwo));
+                StartCoroutine(StopWaitSet(positionThree));
+            }
+
+            else if (newDestination == positionThree.position)
+            {
                 StartCoroutine(StopWaitSet(positionTwo));
             }
             
-            else if(newDestination == positionTwo.position)
+            else if (newDestination == positionTwo.position)
             {
                 StartCoroutine(StopWaitSet(positionOne));
             }
